@@ -19,7 +19,7 @@ class FlatIterator:
             inf_depth = self._depth == -1
             if isinstance(item, list) and (inf_depth or self._depth):
                 self._nested_iterator = iter(FlatIterator(item, depth=-1 if inf_depth else self._depth - 1))
-                return next(self._nested_iterator)
+                return next(self)
             return item
 
 
